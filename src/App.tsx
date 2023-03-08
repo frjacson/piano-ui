@@ -1,14 +1,16 @@
-import React from 'react';
+import React from 'react'
+import Button, { ButtonType } from './components/Button/button'
 
 function App() {
   return (
     <div className="App">
-      <h2>hello world</h2>
-      dsaf
-      <h3>hello world</h3>
-      hello word;
+      <Button btnType={ButtonType.Primary}>你好</Button>
+      <Button disabled>你好</Button>
+      <Button btnType={ButtonType.Link} href="https://www.baidu.com">
+        baidu Link
+      </Button>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
