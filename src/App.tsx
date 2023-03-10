@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="App">
       <Icon icon="coffee" theme="primary" size="10x"></Icon>
-      <Menu defaultIndex="0" mode="vertical" defaultOpenSubMenus={['3']}>
+      <Menu defaultIndex="0" mode="horizontal" defaultOpenSubMenus={['3']}>
         <MenuItem>cool link</MenuItem>
         <MenuItem disabled>cool link2</MenuItem>
         <MenuItem>hello</MenuItem>
