@@ -1,12 +1,17 @@
 import React from 'react'
-// import Button from './components/Button/button'
+// 引入fontawesome组件库
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { library } from '@fortawesome/fontawesome-svg-core'
 import Menu from './components/Menu/Menu'
 import MenuItem from './components/Menu/MenuItem'
 import SubMenu from './components/Menu/SubMenu'
+import Icon from './components/Icon/Icon'
 
+library.add(fas)
 function App() {
   return (
     <div className="App">
+      <Icon icon="coffee" theme="primary" size="10x"></Icon>
       <Menu defaultIndex="0" mode="vertical" defaultOpenSubMenus={['3']}>
         <MenuItem>cool link</MenuItem>
         <MenuItem disabled>cool link2</MenuItem>
