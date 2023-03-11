@@ -16,25 +16,25 @@ const testSuccessAlertProp: AlertProps = {
 }
 
 describe('test Alert Component', () => {
-  // it('should render a default alert ', async () => {
-  //   const wrapper = render(<Alert {...testAlertProps}>hello</Alert>)
-  //   const element = wrapper.getByText('hello')
+  it('should render a default alert ', async () => {
+    const wrapper = render(<Alert {...testAlertProps}>hello</Alert>)
+    const element = wrapper.getByText('hello')
 
-  //   expect(element).toBeInTheDocument()
-  //   expect(element).toHaveClass('alert-message')
-  //   expect(element.parentNode).toHaveClass('alert alert-primary')
+    expect(element).toBeInTheDocument()
+    expect(element).toHaveClass('alert-message')
+    expect(element.parentNode).toHaveClass('alert alert-primary')
 
-  //   const titleElement = wrapper.getByText('testAlert')
-  //   expect(titleElement).toBeInTheDocument()
-  //   expect(titleElement).toHaveClass('alert-title')
-  //   expect(titleElement.parentNode).toBe(element.parentNode)
+    const titleElement = wrapper.getByText('testAlert')
+    expect(titleElement).toBeInTheDocument()
+    expect(titleElement).toHaveClass('alert-title')
+    expect(titleElement.parentNode).toBe(element.parentNode)
 
-  //   const iconElement = wrapper.getByText('关闭')
-  //   fireEvent.click(iconElement)
-  //   await waitFor(() => {
-  //     expect(element).not.toBeInTheDocument()
-  //   })
-  // })
+    const iconElement = wrapper.getByText('关闭')
+    fireEvent.click(iconElement)
+    await waitFor(() => {
+      expect(element).not.toBeInTheDocument()
+    })
+  })
 
   it('should render the correct component based on different props', async () => {
     const wrapper = render(<Alert {...testSuccessAlertProp}>Nice</Alert>)
