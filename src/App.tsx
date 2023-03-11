@@ -6,6 +6,8 @@ import Menu from './components/Menu/Menu'
 import MenuItem from './components/Menu/MenuItem'
 import SubMenu from './components/Menu/SubMenu'
 import Icon from './components/Icon/Icon'
+import Alert from './components/Alert/Alert'
+import Button from './components/Button/button'
 
 library.add(fas)
 function App() {
@@ -21,6 +23,9 @@ function App() {
           <MenuItem>dropdown 2</MenuItem>
         </SubMenu>
       </Menu>
+      <Alert type="danger" closeIcon="关闭">
+        你好
+      </Alert>
     </div>
   )
 }

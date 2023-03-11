@@ -9,7 +9,7 @@ export interface SubMenuProps {
   index?: string
   title: string
   className?: string
-  children: React.ReactNode
+  children?: React.ReactNode
 }
 
 const SubMenu: React.FC<SubMenuProps> = props => {

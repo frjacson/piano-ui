@@ -8,24 +8,26 @@ type AnimationName =
   | 'zoom-in-bottom'
   | 'zoom-in-right'
 
-// type TransitionProps = CSSTransitionProps & {
-//   animation?: AnimationName
-// }
-export type TransitionProps<Ref extends HTMLElement | undefined = undefined> =
-  CSSTransitionProps<Ref> & {
-    animation?: AnimationName
-    // 添加一层dom, 避免 内置 transition冲突
-    wrapper?: boolean
-  }
+type TransitionProps = CSSTransitionProps & {
+  animation?: AnimationName
+  wrapper?: boolean
+  children?: React.ReactNode
+}
+// export type TransitionProps<Ref extends HTMLElement | undefined = undefined> =
+//   CSSTransitionProps<Ref> & {
+//     animation?: AnimationName
+//     // 添加一层dom, 避免 内置 transition冲突
+//     wrapper?: boolean
+//   }
 
 const Transition: React.FC<TransitionProps> = props => {
-  const { children, classNames, animation, ...restProps } = props
+  const { children, classNames, animation, wrapper, ...restProps } = props
   return (
     <CSSTransition
       classNames={classNames ? classNames : animation}
       {...restProps}
     >
-      {children}
+      {wrapper ? <div>{children}</div> : children}
     </CSSTransition>
   )
 }
