@@ -7,7 +7,9 @@ import MenuItem from './components/Menu/MenuItem'
 import SubMenu from './components/Menu/SubMenu'
 import Icon from './components/Icon/Icon'
 import Alert from './components/Alert/Alert'
-import Button from './components/Button/button'
+// import Button from './components/Button/button'
+import Tabs from './components/Tabs/Tabs'
+import TabItem from './components/Tabs/TabItem'
 
 library.add(fas)
 function App() {
@@ -26,6 +28,13 @@ function App() {
       <Alert type="danger" closeIcon="关闭">
         你好
       </Alert>
+      <Tabs styleType="outline">
+        <TabItem label="card1">this is card one</TabItem>
+        <TabItem label="card2">this is card two</TabItem>
+        <TabItem label="card3" disabled>
+          this is card three
+        </TabItem>
+      </Tabs>
     </div>
   )
 }
