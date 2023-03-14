@@ -5,11 +5,17 @@ export type ButtonSize = 'lg' | 'sm'
 export type ButtonType = 'primary' | 'default' | 'danger' | 'link'
 
 interface BaseButtonProps {
+  /**添加自定义类名 */
   className?: string
+  /**设置按钮失效状态 */
   disabled?: boolean
+  /**设置按钮的尺寸大小 */
   size?: ButtonSize
+  /**设置按钮的类型 */
   btnType?: ButtonType
-  children: React.ReactNode
+  /**设置按钮上的文字 */
+  children?: React.ReactNode
+  /**点击跳转的地址，指定此属性 button 的行为和 a 链接一致 */
   href?: string
 }
 type NativeButtonProps = BaseButtonProps &
