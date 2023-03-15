@@ -5,10 +5,15 @@ import { TabItemProps } from './TabItem'
 type TabStyle = 'underline' | 'outline'
 
 export interface TabProps {
+  /** 默认显示第几个index */
   defalutIndex?: number
+  /** 点击第i个tab触发事件 */
   onSelect?: (selectId: number) => void
+  /** tabs的样式 */
   styleType?: TabStyle
+  /** 自定义样式名 */
   className?: string
+  /** 子节点 */
   children?: React.ReactNode
 }
 

@@ -6,11 +6,17 @@ import Transition from '../Transition/Transition'
 export type AlertType = 'success' | 'primary' | 'danger' | 'warning'
 
 export interface AlertProps {
+  /** 标题 */
   title?: string
+  /** 弹窗类型 */
   type?: AlertType
+  /** 当前是否显示关闭信息或者图标 */
   closable?: boolean
+  /** 图标信息或者自定义关闭文字 */
   closeIcon?: string
+  /** 图标关闭事件 */
   onClose?: () => void
+  /** 子节点 */
   children?: React.ReactNode
 }
 

@@ -5,12 +5,18 @@ import { MenuItemProps } from './MenuItem'
 type MenuMode = 'horizontal' | 'vertical'
 type SelectCallback = (selectedIndex: string) => void
 export interface MenuProps {
+  /**默认展示下标 */
   defaultIndex?: string
+  /** 自定义类名 */
   className?: string
+  /** 显示样式 */
   mode?: MenuMode
+  /** 自定义样式 */
   style?: React.CSSProperties
+  /** 选择事件 */
   onSelect?: SelectCallback
   children?: React.ReactNode
+  /** 默认展开某个子菜单 只在垂直方向上作用 */
   defaultOpenSubMenus?: string[]
 }
 interface IMenuContext {
