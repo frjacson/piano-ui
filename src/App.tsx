@@ -10,6 +10,7 @@ import Alert from './components/Alert/Alert'
 // import Button from './components/Button/button'
 import Tabs from './components/Tabs/Tabs'
 import TabItem from './components/Tabs/TabItem'
+import Input from './components/Input/Input'
 
 library.add(fas)
 function App() {
@@ -35,6 +36,12 @@ function App() {
           this is card three
         </TabItem>
       </Tabs>
+      <Input
+        style={{ width: '400px' }}
+        size="lg"
+        icon="times"
+        prepend="hello"
+      />
     </div>
   )
 }
