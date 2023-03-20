@@ -23,7 +23,7 @@ export interface InputProps
   /** 添加后缀 用于配制一些固定的组合 */
   append?: string | ReactElement
   /** change事件 */
-  onChange?: (e: ChangeEvent<HTMLElement>) => void
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
 const Input: React.FC<InputProps> = props => {

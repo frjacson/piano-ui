@@ -11,9 +11,19 @@ import Alert from './components/Alert/Alert'
 import Tabs from './components/Tabs/Tabs'
 import TabItem from './components/Tabs/TabItem'
 import Input from './components/Input/Input'
+import AutoComplete from './components/AutoComplete/AutoComplete'
 
 library.add(fas)
 function App() {
+  const lakers = [
+    { value: 'brandley' },
+    { value: 'pope' },
+    { value: 'caruso' },
+    { value: 'yy' }
+  ]
+  const handleFetch = (query: string) => {
+    return lakers.filter(name => name.value.includes(query))
+  }
   return (
     <div className="App">
       <Icon icon="coffee" theme="primary" size="10x"></Icon>
@@ -42,6 +52,7 @@ function App() {
         icon="times"
         prepend="hello"
       />
+      <AutoComplete fetchSuggestion={handleFetch} />
     </div>
   )
 }
