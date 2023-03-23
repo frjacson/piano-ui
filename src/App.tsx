@@ -12,6 +12,7 @@ import Tabs from './components/Tabs/Tabs'
 import TabItem from './components/Tabs/TabItem'
 import Input from './components/Input/Input'
 import AutoComplete from './components/AutoComplete/AutoComplete'
+import Select from './components/Select/Select'
 
 library.add(fas)
 function App() {
@@ -53,6 +54,16 @@ function App() {
         prepend="hello"
       />
       <AutoComplete fetchSuggestion={handleFetch} />
+      <Select
+        options={[
+          { value: 'nihao' },
+          { value: 'nihao2' },
+          { value: 'nihao3', disabled: true }
+        ]}
+        showSearch
+        multiple
+        style={{ width: 400 }}
+      ></Select>
     </div>
   )
 }

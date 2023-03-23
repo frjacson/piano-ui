@@ -1,0 +1,104 @@
+.piano-select-wrapper {
+  position: relative;
+  margin: 0 3px;
+  .piano-input-wrapper {
+    cursor: pointer;
+    margin-bottom: 0;
+    &:hover {
+      input {
+        border-color: $primary !important;
+      }
+    }
+  }
+  input {
+    &:read-only {
+      background-color: $input-bg;
+      border-color: $input-border-color;
+      cursor: pointer;
+      opacity: 1;
+    }
+    &:disabled {
+      background-color: $input-disabled-bg;
+      border-color: $input-disabled-border-color;
+      opacity: 1;
+      cursor: not-allowed;
+    }
+  }
+  .icon-wrapper {
+    transition: transform 0.25s ease-in-out;
+    transform: rotate(0deg) !important;
+  }
+  .select-options {
+    position: absolute;
+    width: 100%;
+    background-color: $white;
+    max-width: $select-options-max-width;
+    border: $select-options-border-width solid $select-options-border-color;
+    box-shadow: $select-options-shadow;
+    margin-top: $spacer/2;
+    list-style: none;
+    padding-left: 0;
+    .select-option-item {
+      position: relative;
+      padding: $select-options-padding-y $select-options-padding-x;
+      font-family: $select-options-font-family;
+      font-size: $select-options-font-size;
+      font-weight: $select-options-font-weight;
+      line-height: $select-options-line-height;
+      cursor: pointer;
+      &:hover {
+        color: $primary;
+        background-color: lighten($blue, 35%);
+      }
+      &.select-option-item-disabled:hover {
+        background-color: $white;
+      }
+      &.select-option-item-disabled {
+        cursor: not-allowed;
+        color: $gray-600;
+      }
+      &.select-option-item-selected {
+        color: $primary;
+        background-color: lighten($blue, 35%);
+      }
+      .piano-icon {
+        position: absolute;
+        right: 0.75rem;
+        top: 0.5rem;
+        cursor: pointer;
+        &:hover {
+          color: darken($primary, 10%);
+        }
+      }
+    }
+  }
+  .piano-selected_tags {
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    height: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    .piano-selected_tags_tag {
+      height: 80%;
+      padding: 2px 5px;
+      box-sizing: border-box;
+      border: 1px solid rgba($primary, 0.2);
+      margin-left: 6px;
+      border-radius: 3px;
+      color: $primary;
+      background-color: rgba($primary, 0.1);
+    }
+    .piano-icon {
+      margin-left: 3px;
+      cursor: pointer;
+      &:hover {
+        color: darken($primary, 10%);
+      }
+    }
+  }
+}

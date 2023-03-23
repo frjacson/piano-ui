@@ -1,10 +1,12 @@
 import React from 'react'
 import classNames from 'classnames'
+import { fas } from '@fortawesome/free-solid-svg-icons'
 import {
   FontAwesomeIcon,
   FontAwesomeIconProps
 } from '@fortawesome/react-fontawesome'
-
+import { library } from '@fortawesome/fontawesome-svg-core'
+library.add(fas)
 export type ThemeProps =
   | 'primary'
   | 'success'
@@ -26,5 +28,5 @@ const Icon: React.FC<IconProps> = props => {
   })
   return <FontAwesomeIcon className={classes} {...resetProps} />
 }
-
+Icon.displayName = 'Icon'
 export default Icon

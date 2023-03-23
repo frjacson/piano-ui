@@ -1,4 +1,9 @@
-import React, { ChangeEvent, InputHTMLAttributes, ReactElement } from 'react'
+import React, {
+  ChangeEvent,
+  InputHTMLAttributes,
+  ReactElement,
+  forwardRef
+} from 'react'
 import classNames from 'classnames'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 // import { faDivide } from '@fortawesome/free-solid-svg-icons'
@@ -25,8 +30,7 @@ export interface InputProps
   /** change事件 */
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void
 }
-
-const Input: React.FC<InputProps> = props => {
+const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const { disabled, size, icon, prepend, append, style, ...restProps } = props
   const classes = classNames('piano-input-wrapper', {
     [`input-size-${size}`]: size,
@@ -54,13 +58,18 @@ const Input: React.FC<InputProps> = props => {
           <Icon icon={icon} title={`title-${icon}`}></Icon>
         </div>
       )}
-      <input className="piano-input-inner" disabled={disabled} {...restProps} />
+      <input
+        ref={ref}
+        className="piano-input-inner"
+        disabled={disabled}
+        {...restProps}
+      />
       {append && <div className="piano-input-group-append">{append}</div>}
     </div>
   )
-}
+})
 Input.defaultProps = {
   disabled: false
 }
-
+Input.displayName = 'Input'
 export default Input
