@@ -13,6 +13,7 @@ import TabItem from './components/Tabs/TabItem'
 import Input from './components/Input/Input'
 import AutoComplete from './components/AutoComplete/AutoComplete'
 import Select from './components/Select/Select'
+import Upload from './components/Upload/Upload'
 
 library.add(fas)
 function App() {
@@ -64,6 +65,7 @@ function App() {
         multiple
         style={{ width: 400 }}
       ></Select>
+      <Upload action="https://jsonplaceholder.typicode.com/posts"></Upload>
     </div>
   )
 }
