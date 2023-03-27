@@ -1,7 +1,6 @@
 import React, { ChangeEvent, ReactNode, useRef, useState } from 'react'
 import axios from 'axios'
 
-import Button from '../Button/Button'
 import { UploadFile } from './UploadFileProps'
 import UploadList from './UploadList'
 
