@@ -6,14 +6,34 @@ import { UploadFile } from './UploadFileProps'
 import UploadList from './UploadList'
 
 export interface UploadProps {
+  /** 请求地址 */
   action: string
+  /** 默认发送的文件 */
   defaultFileList?: UploadFile[]
+  /** 发送前触发事件 */
   beforeUpload?: (file: File) => boolean | Promise<File>
+  /** 发送过程中触发事件 */
   onProgress?: (percentage: number, file: File) => void
+  /** 发送成功触发事件 */
   onSuccess?: (data: any, file: File) => void
+  /** 发送失败触发事件 */
   onError?: (err: any, file: File) => void
+  /** 更改发送文件触发的改变事件 */
   onChange?: (file: File) => void
+  /** 移除文件触发事件 */
   onRemove?: (file: UploadFile) => void
+  /** 发送请求头 */
+  headers?: { [key: string]: any }
+  /** 发送文件名称 */
+  name?: string
+  /** 发送文件的key-value */
+  data?: { [key: string]: any }
+  /** 是否认证 */
+  withCredentials?: boolean
+  /** 支持上传文件的类型 */
+  accept?: string
+  /** 是否支持上传多个文件 */
+  multiple?: boolean
 }
 
 const Upload: React.FC<UploadProps> = props => {
@@ -25,7 +45,13 @@ const Upload: React.FC<UploadProps> = props => {
     beforeUpload,
     onChange,
     defaultFileList,
-    onRemove
+    onRemove,
+    headers,
+    name,
+    data,
+    withCredentials,
+    accept,
+    multiple
   } = props
   const fileInputRef = useRef<HTMLInputElement>(null)
   const [fileList, setFileList] = useState<UploadFile[]>(defaultFileList || [])
@@ -93,14 +119,24 @@ const Upload: React.FC<UploadProps> = props => {
       percent: 0,
       raw: file
     }
-    setFileList([_file, ...fileList])
+    // setFileList([_file, ...fileList])
+    setFileList(preList => {
+      return [_file, ...preList]
+    })
     const formData = new FormData()
-    formData.append(file.name, file)
+    formData.append(name || 'file', file)
+    if (data) {
+      Object.keys(data).forEach(key => {
+        formData.append(key, data[key])
+      })
+    }
     axios
       .post(action, formData, {
         headers: {
+          ...headers,
           'Content-Type': 'multipart/form-data'
         },
+        withCredentials,
         onUploadProgress: e => {
           if (e.total) {
             const percentage = Math.round((e.loaded * 100) / e.total) || 0
@@ -148,15 +184,14 @@ const Upload: React.FC<UploadProps> = props => {
         style={{ display: 'none' }}
         ref={fileInputRef}
         onChange={handleFileChange}
+        accept={accept}
+        multiple={multiple}
       />
-      <UploadList
-        fileList={fileList}
-        onRemove={() => {
-          handleRemove
-        }}
-      ></UploadList>
+      <UploadList fileList={fileList} onRemove={handleRemove}></UploadList>
     </div>
   )
 }
-
+Upload.defaultProps = {
+  name: 'file'
+}
 export default Upload

@@ -1,6 +1,7 @@
 import React from 'react'
 import { UploadFile } from './UploadFileProps'
 import Icon from '../Icon/Icon'
+import Progress from '../Progress/Progress'
 
 interface UploadListProps {
   fileList: UploadFile[]
@@ -13,7 +14,7 @@ const UploadList: React.FC<UploadListProps> = props => {
     <ul className="piano-upload-list">
       {fileList.map(item => {
         return (
-          <li className="piao-upload-list-item" key={item.uid}>
+          <li className="piano-upload-list-item" key={item.uid}>
             <span className={`file-name file-name-${item.status}`}>
               <Icon icon="file-alt" theme="secondary"></Icon>
               {item.name}
@@ -37,6 +38,9 @@ const UploadList: React.FC<UploadListProps> = props => {
                 }}
               ></Icon>
             </span>
+            {item.status === 'uploading' && (
+              <Progress percent={item.percent || 0}></Progress>
+            )}
           </li>
         )
       })}

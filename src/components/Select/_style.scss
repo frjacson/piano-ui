@@ -38,6 +38,7 @@
     margin-top: $spacer/2;
     list-style: none;
     padding-left: 0;
+    z-index: 100;
     .select-option-item {
       position: relative;
       padding: $select-options-padding-y $select-options-padding-x;

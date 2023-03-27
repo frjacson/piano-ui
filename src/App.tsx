@@ -67,7 +67,7 @@ function App() {
         style={{ width: 400 }}
       ></Select>
       <Upload action="https://jsonplaceholder.typicode.com/posts"></Upload>
-      <Progress percent={90}></Progress>
+      <Progress percent={90} styles={{ width: 200 }}></Progress>
     </div>
   )
 }
