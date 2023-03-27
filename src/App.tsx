@@ -14,6 +14,7 @@ import Input from './components/Input/Input'
 import AutoComplete from './components/AutoComplete/AutoComplete'
 import Select from './components/Select/Select'
 import Upload from './components/Upload/Upload'
+import Progress from './components/Progress/Progress'
 
 library.add(fas)
 function App() {
@@ -66,6 +67,7 @@ function App() {
         style={{ width: 400 }}
       ></Select>
       <Upload action="https://jsonplaceholder.typicode.com/posts"></Upload>
+      <Progress percent={90}></Progress>
     </div>
   )
 }
