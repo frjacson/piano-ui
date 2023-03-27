@@ -3,6 +3,7 @@ import axios from 'axios'
 
 import { UploadFile } from './UploadFileProps'
 import UploadList from './UploadList'
+import Dragger from './Dragger'
 
 export interface UploadProps {
   /** 请求地址 */
@@ -187,7 +188,17 @@ const Upload: React.FC<UploadProps> = props => {
         style={{ display: 'inline-block' }}
         onClick={handleClick}
       >
-        {children}
+        {drag ? (
+          <Dragger
+            onFile={files => {
+              uploadFile(files)
+            }}
+          >
+            {children}
+          </Dragger>
+        ) : (
+          children
+        )}
         <input
           type="file"
           className="piano-file-input"

@@ -66,7 +66,7 @@ function App() {
         multiple
         style={{ width: 400 }}
       ></Select>
-      <Upload action="https://jsonplaceholder.typicode.com/posts">
+      <Upload action="https://jsonplaceholder.typicode.com/posts" drag>
         <Button btnType="primary">上传文件</Button>
       </Upload>
       <Progress percent={90} styles={{ width: 200 }}></Progress>
