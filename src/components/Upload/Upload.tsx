@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useRef, useState } from 'react'
+import React, { ChangeEvent, ReactNode, useRef, useState } from 'react'
 import axios from 'axios'
 
 import Button from '../Button/Button'
@@ -34,6 +34,9 @@ export interface UploadProps {
   accept?: string
   /** 是否支持上传多个文件 */
   multiple?: boolean
+  /** 是否支持拖动上传 */
+  drag?: boolean
+  children?: ReactNode
 }
 
 const Upload: React.FC<UploadProps> = props => {
@@ -51,7 +54,9 @@ const Upload: React.FC<UploadProps> = props => {
     data,
     withCredentials,
     accept,
-    multiple
+    multiple,
+    drag,
+    children
   } = props
   const fileInputRef = useRef<HTMLInputElement>(null)
   const [fileList, setFileList] = useState<UploadFile[]>(defaultFileList || [])
@@ -175,18 +180,25 @@ const Upload: React.FC<UploadProps> = props => {
   }
   return (
     <div className="piano-upload-component">
-      <Button btnType="primary" onClick={handleClick}>
+      {/* <Button btnType="primary" onClick={handleClick}>
         Upload File
-      </Button>
-      <input
-        type="file"
-        className="piano-file-input"
-        style={{ display: 'none' }}
-        ref={fileInputRef}
-        onChange={handleFileChange}
-        accept={accept}
-        multiple={multiple}
-      />
+      </Button> */}
+      <div
+        className="piano-upload-input"
+        style={{ display: 'inline-block' }}
+        onClick={handleClick}
+      >
+        {children}
+        <input
+          type="file"
+          className="piano-file-input"
+          style={{ display: 'none' }}
+          ref={fileInputRef}
+          onChange={handleFileChange}
+          accept={accept}
+          multiple={multiple}
+        />
+      </div>
       <UploadList fileList={fileList} onRemove={handleRemove}></UploadList>
     </div>
   )

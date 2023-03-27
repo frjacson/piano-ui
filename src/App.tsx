@@ -7,7 +7,7 @@ import MenuItem from './components/Menu/MenuItem'
 import SubMenu from './components/Menu/SubMenu'
 import Icon from './components/Icon/Icon'
 import Alert from './components/Alert/Alert'
-// import Button from './components/Button/button'
+import Button from './components/Button/Button'
 import Tabs from './components/Tabs/Tabs'
 import TabItem from './components/Tabs/TabItem'
 import Input from './components/Input/Input'
@@ -66,7 +66,9 @@ function App() {
         multiple
         style={{ width: 400 }}
       ></Select>
-      <Upload action="https://jsonplaceholder.typicode.com/posts"></Upload>
+      <Upload action="https://jsonplaceholder.typicode.com/posts">
+        <Button btnType="primary">上传文件</Button>
+      </Upload>
       <Progress percent={90} styles={{ width: 200 }}></Progress>
     </div>
   )
