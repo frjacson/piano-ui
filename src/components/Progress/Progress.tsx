@@ -17,6 +17,7 @@ const Progress: React.FC<ProgressProps> = props => {
   )
   useEffect(() => {
     setNewPersent(((barRef.current?.offsetWidth || 0) * percent) / 100)
+    console.log(percent)
   }, [percent])
   return (
     <div className="piano-progress-bar" style={styles} ref={barRef}>
