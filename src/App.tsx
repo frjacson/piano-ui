@@ -15,6 +15,8 @@ import AutoComplete from './components/AutoComplete/AutoComplete'
 import Select from './components/Select/Select'
 import Upload from './components/Upload/Upload'
 import Progress from './components/Progress/Progress'
+import Form from './components/Form/Form'
+import FormItem from './components/Form/FormItem'
 
 library.add(fas)
 function App() {
@@ -70,6 +72,28 @@ function App() {
         <Button btnType="primary">上传文件</Button>
       </Upload>
       <Progress percent={90} styles={{ width: 200 }}></Progress>
+      <br />
+      <Form>
+        <FormItem
+          label="用户名"
+          name="name"
+          rules={[{ type: 'string', required: true, min: 3 }]}
+        >
+          <Input />
+        </FormItem>
+        <FormItem
+          label="密码"
+          name="password"
+          rules={[{ type: 'string', required: true, min: 3, max: 8 }]}
+        >
+          <Input type="password" />
+        </FormItem>
+        <div className="piano-form--submit_area">
+          <Button type="submit" btnType="primary">
+            登陆
+          </Button>
+        </div>
+      </Form>
     </div>
   )
 }

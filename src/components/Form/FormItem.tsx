@@ -109,7 +109,7 @@ const FormItem: React.FC<FormItemProps> = props => {
           </label>
         </div>
       )}
-      <div className="piano-form--item ">
+      <div className="piano-form--item">
         <div className={itemClass}>{returnChildNode}</div>
         {hasError && (
           <div className="piano-form--item__explain">
@@ -120,3 +120,12 @@ const FormItem: React.FC<FormItemProps> = props => {
     </div>
   )
 }
+
+FormItem.defaultProps = {
+  valuePropName: 'value',
+  trigger: 'onChange',
+  validateTrigger: 'onBlur',
+  getValueFromEvent: e => e.target.value
+}
+
+export default FormItem

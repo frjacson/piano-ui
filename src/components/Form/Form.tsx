@@ -59,7 +59,7 @@ export const Form = forwardRef<IFormRef, FormProps>((props, ref) => {
   const submitForm = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     e.stopPropagation()
-    const { isValid, errors, mapValues: values } = await validateAllFields()
+    const { isValid, errors, valueMap: values } = await validateAllFields()
     if (isValid && onFinish) {
       onFinish(values)
     } else if (!isValid && onFinishFailed) {
@@ -73,7 +73,7 @@ export const Form = forwardRef<IFormRef, FormProps>((props, ref) => {
   }
   return (
     <>
-      <form name={name} className="violetForm" onSubmit={submitForm}>
+      <form name={name} className="piano-form" onSubmit={submitForm}>
         <FormContext.Provider value={passedContext}>
           {childrenNode}
         </FormContext.Provider>

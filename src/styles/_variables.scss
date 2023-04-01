@@ -316,6 +316,7 @@ $input-focus-width: 0.2rem !default;
 $input-focus-color: $input-color !default;
 $input-focus-shadow-color: rgba($primary, 0.25) !default;
 $input-focus-box-shadow: 0 0 0 $input-focus-width $input-focus-shadow-color !default;
+$input-focus-box-shadow-error: 0 0 0 $input-focus-width;
 
 $input-placeholder-color: $gray-600 !default;
 $input-plaintext-color: $body-color !default;

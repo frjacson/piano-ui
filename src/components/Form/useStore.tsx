@@ -165,7 +165,7 @@ function useStore(initialValues?: Record<string, any>) {
     return {
       isValid,
       errors,
-      mapValues
+      valueMap
     }
   }
   return {
