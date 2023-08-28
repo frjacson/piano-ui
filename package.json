@@ -1,7 +1,22 @@
 {
   "name": "piano-ui",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "description": "A beautiful components library",
+  "author": "Weikai Qi",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "keywords": ["Components", "UI", "Piano-ui", "React"],
+  "homepage": "https://github.com/frjacson/piano-ui",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/frjacson/piano-ui"
+  },
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.3.0",
     "@fortawesome/free-solid-svg-icons": "^6.3.0",
@@ -26,6 +41,7 @@
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "react-transition-group": "^4.4.5",
+    "rimraf": "^5.0.1",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
@@ -36,11 +52,15 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "clean": "rimraf ./dist",
+    "build": "yarn clean && yarn build-ts && yarn build-css",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "build-ts": "tsc -p tsconfig.build.json",
+    "build-css": "node-sass ./src/styles/index.scss ./dist/index.css",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "prepublish": "yarn build"
   },
   "eslintConfig": {
     "extends": [
@@ -87,6 +107,7 @@
     "@typescript-eslint/eslint-plugin": "^5.54.1",
     "@typescript-eslint/parser": "^5.54.1",
     "babel-jest": "^29.5.0",
+    "babel-plugin-import": "^1.13.8",
     "babel-plugin-named-exports-order": "^0.0.2",
     "eslint": "^8.35.0",
     "eslint-config-prettier": "^8.7.0",
